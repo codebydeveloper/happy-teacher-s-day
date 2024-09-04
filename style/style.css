@@ -1,0 +1,175 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fad0c4, #ff9a9e);
+  background-size: 600% 600%;
+  animation: gradientBackground 15s ease infinite;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  overflow: hidden; /* Prevents scrollbars */
+}
+
+/* Gradient animation */
+@keyframes gradientBackground {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Confetti styling */
+.confetti {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1; /* Ensure confetti is behind content */
+}
+
+.confetti-piece {
+  position: absolute;
+  background-color: #ffeb3b;
+  width: 10px;
+  height: 10px;
+  opacity: 0.8;
+  transform: rotate(45deg);
+  animation: fall 5s ease-in infinite, spin 2s linear infinite;
+}
+
+@keyframes fall {
+  from { transform: translateY(-100vh); }
+  to { transform: translateY(100vh); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Container styling */
+.container {
+  position: relative;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  z-index: 2; /* Ensure container is above confetti */
+}
+
+/* Name input container */
+.name-input-container {
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.name-input-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.name-input-container input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  margin-right: 10px;
+  width: calc(100% - 120px); /* Adjust width for alignment */
+}
+
+.name-input-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.name-input-container button:hover {
+  background-color: #555;
+}
+
+/* Content styling */
+.content {
+  display: none; /* Initially hidden */
+}
+
+.content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  animation: fadeInDown 2s ease;
+}
+
+.content h1 span {
+  color: #90ee90; /* Light green color */
+  font-style: italic;
+}
+
+.content h3 {
+  font-size: 2rem;
+  margin-top: 20px;
+  animation: fadeInUp 2s ease;
+}
+
+/* Footer styling */
+.footer {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #ffeb3b;
+}
+
+/* Music controls */
+.music-controls {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.music-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.music-btn:hover {
+  background-color: #555;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .content h1 {
+    font-size: 2.5rem;
+  }
+
+  .content h3 {
+    font-size: 1.5rem;
+  }
+
+  .name-input-container input {
+    width: calc(100% - 100px);
+  }
+}
